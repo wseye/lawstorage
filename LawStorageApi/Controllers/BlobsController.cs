@@ -27,7 +27,7 @@ namespace LawStorageApi.Controllers
         [HttpGet("{blobname}")]
         public async Task<ActionResult> Get([FromRoute]string blobName)
         {
-            const string connectionString = "DefaultEndpointsProtocol=https;AccountName=lawpoc;AccountKey=ZdHGAtI53VpeoPx+ogmGLx7K/Egj/ppZJiyuMYNlPgBEEoC7tv+c9bebXumXysBD3piBx6LnE8GZQzEjhz81kQ==;EndpointSuffix=core.windows.net";
+            const string connectionString = "";
             const string blobContainerName = "testje";
 
             string containerEndpoint = $"https://lawpoc.blob.core.windows.net/{blobContainerName}";
