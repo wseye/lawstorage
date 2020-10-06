@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Azure;
+using Azure.Identity;
 using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -26,13 +27,21 @@ namespace LawStorageApi.Controllers
         [HttpGet("{blobname}")]
         public async Task<ActionResult> Get([FromRoute]string blobName)
         {
-            const string connectionString = "connectionString";
-            const string blobContainerName = "container";
-            var containerClient = new BlobContainerClient(connectionString, blobContainerName);
+            const string connectionString = "DefaultEndpointsProtocol=https;AccountName=lawpoc;AccountKey=ZdHGAtI53VpeoPx+ogmGLx7K/Egj/ppZJiyuMYNlPgBEEoC7tv+c9bebXumXysBD3piBx6LnE8GZQzEjhz81kQ==;EndpointSuffix=core.windows.net";
+            const string blobContainerName = "testje";
+
+            string containerEndpoint = $"https://lawpoc.blob.core.windows.net/{blobContainerName}";
+
+            // Get a credential and create a client object for the blob container.
+            BlobContainerClient containerClient = new BlobContainerClient(new Uri(containerEndpoint),
+                                                                          new DefaultAzureCredential());
+                                                                          //new DefaultAzureCredential(new DefaultAzureCredentialOptions {ManagedIdentityClientId = ""}));
+
+            //var containerClient = new BlobContainerClient(connectionString, blobContainerName);
             BlobClient client = containerClient.GetBlobClient(blobName);
 
             Response<BlobDownloadInfo> blob = await client.DownloadAsync();
-            return Ok(blob.Value);
+            return Ok(blob.Value.Content);
         }
 
         // POST api/<BlobsController>

@@ -46,3 +46,4 @@ C:\Users\wseye\Source\Repos\LawStorage\LawStorageApi\bin\Debug\netcoreapp3.1\Mic
 C:\Users\wseye\Source\Repos\LawStorage\LawStorageApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileProviders.Physical.dll
 C:\Users\wseye\Source\Repos\LawStorage\LawStorageApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileSystemGlobbing.dll
 C:\Users\wseye\Source\Repos\LawStorage\LawStorageApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+C:\Users\wseye\Source\Repos\LawStorage\LawStorageApi\bin\Debug\netcoreapp3.1\Properties\ServiceDependencies\LawStorageApi20201006123931 - Web Deploy\profile.arm.json
